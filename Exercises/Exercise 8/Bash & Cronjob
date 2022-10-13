@@ -1,0 +1,45 @@
+Bash Scripting :)
+A bash script is a file that contains commands. Every command that is written in the script can be done using also usin>Conventionally, bash files have the extension ".sh", but since Linux is an extentionless software, it is not compulsory.
+How does scripting work?
+- the first line contains the shebang (#!) followed by the interpreter by which the script will be executed, ususally i>Since the Shebang contains the #, the first line is commented out as seen in various programming languages.
+- the subsequent lines are commands thatshould be executed.
+
+How is a script executed?
+The "./" followed by the name of the file will cause the script to be executed. eg ./script.sh
+Also, the bash command followed by the file name will also work.eg bash script.sh
+
+Caution: indentation matters. Errors may result from spaces that may or may not be necessary.
+
+Variables
+You'd be familiar with this term if you've had a programming background; however, for those of us who do not have that,>For instance, if I were to use an alphabeth to represent a value (may be a sentence, name or even a set of numbers), th>Understanding how these work,would make a lot of things easier to be understood.
+
+SETTING OUR OWN VARIABLES AND VALUES
+From time to time, scripting becomes more interesting when we have a variety of things to work with.
+
+How do they work?
+In the use of variables, two steps are given:
+- Defining/Declaring said variable
+Here, you put in the variable, as well as its value, in a sequence that may be conveniently stored for future use.
+That sequence usually looks like this: Variable="Desired value"
+It is also permittable to use the syntax Variable=value
+Not Variable= "Desired value", there should be no space between.
+
+- Reading the variable
+Here, you call that variable in the instance they will be used
+Using the dollar sign ($) followed by the Variable, should provide necessary output.
+
+eg echo $Variable === Desired value
+   echo "$Variable" === Desired value
+   echo '$Variable' === $Variable
+The single quote(' ') won't expand the variable, getting the correct syntax is paramount.
+
+Cronjobs 
+These are used in scheduling processes that should be done repeatedly at specific times and in specific ways.
+We first download cron through the terminal: "sudo apt install cron" or logging in as the root user with "sudo su" and then "apt install cron".
+It is very important to note that the user with which you'd like to do said process, is the user with which you'd edit the crontab. That means that if the cronjob is to send a mail to an email address, the user to execute this mail is the user with which the crontab should be edited.
+
+Scheduling processes
+
+At the very end of the file is where this should be done. First goes the schedule and then the bash command, followed by the path to the script/file to be executed.
+The scheduling requires 5 asteris (* * * * *) - space between each, the first is for every minute, followed by every hour, followed by every day (for a month), then every month, finally day( of the week)
+y cronjob was set to run for every hour of everyday (my script would run for every hour of every day); it looked like this: 0 * * * * bash /path/to/script
